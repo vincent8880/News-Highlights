@@ -88,7 +88,7 @@ def process_source(source_list):
     for source in source_list:
         
         id = source.get('id')
-        sname = source.get('name')
+        name = source.get('name')
         description = source.get('description')
         url = source.get('url')
         category = source.get('category')
