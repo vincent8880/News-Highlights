@@ -110,10 +110,6 @@ img:hover {
     cursor: pointer;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
-}
 .small{
     margin-bottom: 0
 }

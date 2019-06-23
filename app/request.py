@@ -9,6 +9,7 @@ Sources = sources.Sources
 apiKey = app.config['NEWS_API_KEY']
 base_url = app.config["NEWS_API_BASE_URL"]
 source_url = app.config["SOURCES_API_BASE_URL"]
+articles_url = app.config['EVERYTHING_SOURCE_BASE_URL']
 def get_news(country):
     '''
     Function that gets the json response to our url request
@@ -101,3 +102,19 @@ def process_source(source_list):
             source_results.append(source_object)
 
     return source_results
+def get_articles(source_id,limit):
+    '''
+    Function that gets articles based on the source id
+    '''
+    get_article_location_url = articles_url.format(source_id,limit,api_key)
+
+    with urllib.request.urlopen(get_article_location_url) as url:
+        articles_location_data = url.read()
+        articles_location_response = json.loads(articles_location_data)
+
+        articles_location_results = None
+
+        if articles_location_response['articles']:
+            articles_location_results = process_results(articles_location_response['articles'])
+        
+    return articles_location_results

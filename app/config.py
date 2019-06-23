@@ -4,6 +4,7 @@ class Config:
     '''
     NEWS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country={}&apiKey={}'
     SOURCES_API_BASE_URL ='https://newsapi.org/v2/sources?language={}&apiKey={}'
+    EVERYTHING_SOURCE_BASE_URL = 'https://newsapi.org/v2/everything?sources={}&pageSize={}&apiKey={}'
 class ProdConfig(Config):
     '''
     Production  configuration child class

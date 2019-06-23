@@ -21,7 +21,7 @@ def index():
 @app.route('/article/')
 def article():
 
-    general_news = get_sources('en')
-    print(general_news)
+    sources = get_sources('en')
+    print(sources)
     title = 'Home - Welcome to The best Movie Review Website Online'
-    return render_template('index.html', title = title,general = general_news)
+    return render_template('index.html', title = title,sources = sources)
