@@ -106,7 +106,7 @@ def get_articles(source_id,limit):
     '''
     Function that gets articles based on the source id
     '''
-    get_article_location_url = articles_url.format(source_id,limit,api_key)
+    get_article_location_url = articles_url.format(source_id,limit,apiKey)
 
     with urllib.request.urlopen(get_article_location_url) as url:
         articles_location_data = url.read()

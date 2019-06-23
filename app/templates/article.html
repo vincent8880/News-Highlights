@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             {%for category in sources%}
-            <div class="col-md-3 single-source">
+            <div class="col">
                 <div class="row">
                     <div class="col-md-4 source-name">
                         <h3> {{category.name}} </h3>
@@ -16,7 +16,7 @@
                     <div class="col-md-7 source-details">
                         <p> {{category.description|truncate(150)}}
                             <br>
-                            <a href="/articles/{{category.id}}&40">Read Articles</a>
+                            <a href="/sources/{{category.id}}&40">Read Articles</a>
                         </p>            
                     </div>
                 </div>
