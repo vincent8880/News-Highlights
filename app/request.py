@@ -8,6 +8,7 @@ Sources = sources.Sources
 # Getting api key
 apiKey = app.config['NEWS_API_KEY']
 base_url = app.config["NEWS_API_BASE_URL"]
+source_url = app.config["SOURCES_API_BASE_URL"]
 def get_news(country):
     '''
     Function that gets the json response to our url request
@@ -58,7 +59,7 @@ def get_sources(language):
     '''
     Function that gets the json response to our url request
     '''
-    get_source_url = base_url.format(language,apiKey)
+    get_source_url = source_url.format(language,apiKey)
 
     with urllib.request.urlopen(get_source_url) as url:
         get_source_data = url.read()
