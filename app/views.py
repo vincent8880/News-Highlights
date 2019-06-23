@@ -16,8 +16,8 @@ def index():
     # Getting popular movie
     general_news = get_news('us')
     print(general_news)
-    title = 'Home - Welcome to The best Movie Review Website Online'
-    return render_template('index.html', title = title,general = general_news)
+    title = 'Top Headlines'
+    return render_template('index.html', name='Top Headlines', title = title,news = general_news)
 @app.route('/article/')
 def article():
 
