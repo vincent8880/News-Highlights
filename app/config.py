@@ -2,8 +2,7 @@ class Config:
     '''
     General configuration parent class
     '''
-  MOVIE_API_BASE_URL ='https://newsapi.org/v2/top-headlines?country=kenya&apiKey={}'
-
+    NEWS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?country={}&apiKey={}'
 class ProdConfig(Config):
     '''
     Production  configuration child class

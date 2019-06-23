@@ -1,1 +1,15 @@
-<h1> {{ message }} </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!-- Popular movie section  -->
+        <h3> Popular News</h3>
+         <ul>
+            {% for general_news in general %}
+                <li>{{ general_news.title}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
