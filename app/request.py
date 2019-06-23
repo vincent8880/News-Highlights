@@ -1,7 +1,9 @@
 from app import app
 import urllib.request,json
 from .models import news
+from .models import sources
 News = news.News
+Sources = sources.Sources
 
 # Getting api key
 apiKey = app.config['NEWS_API_KEY']
@@ -52,3 +54,45 @@ def process_results(news_list):
             news_results.append(news_object)
 
     return news_results
+def get_sources(language):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_source_url = base_url.format(language,apiKey)
+
+    with urllib.request.urlopen(get_source_url) as url:
+        get_source_data = url.read()
+        get_source_response = json.loads(get_source_data)
+
+        source_results = None
+
+        if get_source_response['sources']:
+            source_results_list = get_source_response['sources']
+            source_results = process_source(source_results_list)
+def process_source(source_list):
+    '''
+    Function  that processes the movie result and transform them to a list of Objects
+
+    Args:
+        movie_list: A list of dictionaries that contain movie details
+
+    Returns :
+        movie_results: A list of movie objects
+    '''
+    source_results = []
+    for source in source_list:
+        
+        id = source.get('id')
+        sname = source.get('name')
+        description = source.get('description')
+        url = source.get('url')
+        category = source.get('category')
+        language = source.get('language')
+        country = source.get('country')
+
+
+        if url:
+            source_object = Sources(id,name,description,url,category,language,country)
+            source_results.append(source_object)
+
+    return source_results

@@ -1,1 +1,6 @@
-<h1> Hello Movie {{ id }} </h1>
+<h3> Popular News</h3>
+         <ul>
+            {% for general_news in general %}
+                <li>{{ general_news.title}}</li>
+            {% endfor %}
+        </ul>
