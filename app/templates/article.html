@@ -1,6 +1,28 @@
+{% extends 'base.html'%} 
+{% block content %}
+       <div class="container-fluid">
+        <div class="row" id="top">
+            <div class="col-md-12 heading">
+                <h1>News Highlights</h1>
+            </div>
+        </div>
+        <div class="row">
+            {%for category in sources%}
+            <div class="col-md-3 single-source">
+                <div class="row">
+                    <div class="col-md-4 source-name">
+                        <h3> {{category.name}} </h3>
+                    </div>
+                    <div class="col-md-7 source-details">
+                        <p> {{category.description|truncate(150)}}
+                            <br>
+                            <a href="/articles/{{category.id}}&40">Read Articles</a>
+                        </p>            
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
 
-         <ul>
-            {% for general_news in general %}
-                <li>{{ general_news.title}}</li>
-            {% endfor %}
-        </ul>
+       </div>
+{%endblock%}
