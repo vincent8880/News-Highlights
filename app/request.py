@@ -69,6 +69,7 @@ def get_sources(language):
         if get_source_response['sources']:
             source_results_list = get_source_response['sources']
             source_results = process_source(source_results_list)
+    
     return source_results
     
 
