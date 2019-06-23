@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
+  {% extends 'base.html'%}
+  {% block content %}
 
-    </head>
-    <body>
-        <!-- Popular movie section  -->
+
         <h3> Popular News</h3>
          <ul>
             {% for general_news in general %}
                 <li>{{ general_news.title}}</li>
             {% endfor %}
         </ul>
-    </body>
-</html>
+{% endblock %}
